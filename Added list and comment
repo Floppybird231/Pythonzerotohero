@@ -1,0 +1,31 @@
+calculation_of_units=24
+name_of_units="hours"
+
+
+def days_to_units(num_of_days):
+    return (f"{num_of_days} days are {num_of_days* calculation_of_units} {name_of_units}")
+
+def validate_and_execute():
+    try:
+        user_input_number = int(num_of_days_element)
+        # we want to do conversion for positive number only!
+        if user_input_number>0:
+            calculated_value = days_to_units(user_input_number)
+            print(calculated_value)
+        elif user_input_number == 0:
+            print("You entered 0, put a valid positive number please")
+        else:
+            print("You entered a negative number, put a valid positive number please")
+
+
+    except ValueError:
+        print('your input is not a valid number')
+
+user_input = ""
+while user_input != "exit":
+    user_input = input("Hey user, enter a number and i will convert it to hours! You can also put a comma between different number and i will make a list for you!\n")
+    print(type(user_input.split(",")))
+    print(user_input.split(","))
+    for num_of_days_element in user_input.split(","):
+        validate_and_execute()
+
